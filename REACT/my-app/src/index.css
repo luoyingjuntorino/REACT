@@ -1,0 +1,8 @@
+.title{
+  text-align: left;
+  color: whitesmoke;
+  background-image: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Camille_0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* 或 background-size: 100% 100%; */
+  font-family: "NanumBarunGothic"; /* 更改为您喜欢的字体名称，例如 "Arial" */
+}
