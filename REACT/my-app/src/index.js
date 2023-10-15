@@ -247,36 +247,72 @@ class Comments extends React.Component {
       {id:1, name:'jack', content:'hello i am jack'},
       {id:2, name:'rose', content:'hello i am rose'},
       {id:3, name:'tom', content:'hello i am tom'}
-    ]
+    ],
+    userName:'',
+    userContent:''
   }
 
+
+
   renderList () {
-    const name = this.state
-    if (name.comments.length ===0){ 
+
+    if (this.state.comments.length ===0){ 
           return (<div className='no-comment'>暂无评论，快去评论吧！</div>) 
     }
     return (
-                <ul>
-                  {name.comments.map(item=> 
+                <ol>
+                  {this.state.comments.map(item=> 
                   <li key={item.id}>
                     <h3>评论人: {item.name}</h3>
                     <p>内容: {item.content}</p>
                   </li>)}
-                </ul>
+                </ol>
             )
   }
+
+  handleForm = (e) => {
+    const {name, value} = e.target
+    this.setState({
+      [name]:value
+    })
+  }
+
+  addComment = () => {
+    const {comments, userName, userContent} = this.state
+
+    // 非空校验
+    if (userName.trim() === '' || userContent.trim === ''){
+      alert('pls insert name and content')
+      return
+    }
+    console.log(userName, userContent)
+    const newComments = [
+      {
+      id:Math.random(),
+      name:userName,
+      content:userContent
+    },
+    ...comments]
+    this.setState({
+      comments:newComments,
+      userName:'',//清空文本框输入后的状态
+      userContent:''//清空文本框输入后的状态
+    })
+  }
   render(){
+    const {userName, userContent} = this.state
     return(
       <div className='app'>
         <div>
-          <input className='user' type='text' placeholder='请输入评论人' />
+          <input className='user' type='text' placeholder='请输入评论人' value={userName} name='userName' onChange={this.handleForm}/>
           <br/>
           <br/>
 
-          <textarea className='content' cols='30' rows='10' placeholder='请输入评论内容'></textarea>
+          <textarea className='content' cols='30' rows='10' placeholder='请输入评论内容' 
+          value={userContent} name='userContent' onChange={this.handleForm}></textarea>
           <br/>
           <br/>
-          <button>发表内容</button>
+          <button onClick={this.addComment}>发表内容</button>
         </div>
         <br/>
         {this.renderList()}
