@@ -1,0 +1,19 @@
+version: "3"
+services:
+  influxdb:
+    image: influxdb:2.0
+    restart: unless-stopped
+    ports:
+      - "8086:8086" #TODO this should be closed, open just for testing.
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=influxdb #TODO this should be changed
+      - DOCKER_INFLUXDB_INIT_PASSWORD=influxdb #TODO this should be changed
+      - DOCKER_INFLUXDB_INIT_ORG=Polito #TODO this should be changed
+      - DOCKER_INFLUXDB_INIT_BUCKET=test #TODO this should be changed
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-admin-token-yingjun #TODO this should be changed
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+
+volumes:
+  influxdb_data:

@@ -3,7 +3,7 @@ import { login } from "../utils/auth";
 
 const Login = ({ setIsAuthenticated }) => {
   const [credentials, setCredentials] = useState({
-    username: "",
+    login: "",
     password: "",
   });
 
@@ -19,11 +19,11 @@ const Login = ({ setIsAuthenticated }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={credentials.username}
+        value={credentials.login}
         onChange={(e) =>
-          setCredentials({ ...credentials, username: e.target.value })
+          setCredentials({ ...credentials, login: e.target.value })
         }
-        placeholder="Username"
+        placeholder="Login"
       />
       <input
         type="password"
