@@ -9,8 +9,8 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import { refreshToken, logout } from "./utils/auth";
 
-const INACTIVITY_TIMEOUT = 3 * 60 * 1000; // 25 minutes
-const TOKEN_REFRESH_INTERVAL = 1 * 60 * 1000; // 10 minutes
+const INACTIVITY_TIMEOUT = 3 * 60 * 1000; // 3 minutes
+const TOKEN_REFRESH_INTERVAL = 1 * 60 * 1000; // 1 minutes
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -87,6 +87,7 @@ const App = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
+    window.location.href = "/login";
   };
 
   return (

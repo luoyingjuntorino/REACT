@@ -25,6 +25,7 @@ const Login = ({ setIsAuthenticated }) => {
         }
         placeholder="Login"
       />
+      <br />
       <input
         type="password"
         value={credentials.password}
@@ -33,6 +34,7 @@ const Login = ({ setIsAuthenticated }) => {
         }
         placeholder="Password"
       />
+      <br />
       <button type="submit">Login</button>
     </form>
   );

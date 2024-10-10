@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:80/auth/rest";
 
 export const login = async (credentials) => {
-  console.log(credentials);
+  // console.log(credentials);
   try {
     const response = await axios.post(`${API_URL}/token`, credentials, {
       headers: { "Content-Type": "application/json" },
@@ -26,7 +26,7 @@ export const refreshToken = async () => {
   try {
     const response = await axios.post(
       `http://localhost:80/auth/rest/token/refresh`,
-      { "refreshToken": refreshToken },
+      { refreshToken: refreshToken },
       {
         headers: { "Content-Type": "application/json" },
       }
