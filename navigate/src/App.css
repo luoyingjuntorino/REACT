@@ -1,0 +1,52 @@
+/* App整体容器 */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar 样式 */
+.sidebar {
+  width: 250px;
+  background-color: #343a40;
+  padding: 20px;
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.sidebar-link:hover {
+  background-color: #495057;
+}
+
+/* Content 区域样式 */
+.content-container {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+}

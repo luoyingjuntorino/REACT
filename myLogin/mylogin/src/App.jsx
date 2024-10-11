@@ -84,7 +84,8 @@ const App = () => {
 
   const handleLogout = async () => {
     await logout();
-    setIsAuthenticated(false);
+    // setIsAuthenticated(false);
+    localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     window.location.href = "/login";
